@@ -11,6 +11,7 @@ namespace WcfService
     {
         public string Input(string s)
         {
+            Console.WriteLine(s);
             return s;
         }
     }

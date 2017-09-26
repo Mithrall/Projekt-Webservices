@@ -18,14 +18,15 @@ namespace LogReader
 
         private void Run()
         {
-            string SavePath = "C:\\Users\\Kenneth\\Desktop\\logfil.txt";
+            //string SavePath = "C:\\Users\\Kenneth\\Desktop\\logfil.txt";
+            string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\logfil.txt";
             var text = File.ReadAllLines(SavePath);
-
+            client.Input("test");
             foreach (var line in text)
             {
-                //Console.WriteLine(line);
+                Console.WriteLine(line);
                 //Thread.Sleep(1000);
-                client.Input(line);
+                //client.Input(line);
             }
 
             Console.WriteLine("Press 'any' key to exit...");
