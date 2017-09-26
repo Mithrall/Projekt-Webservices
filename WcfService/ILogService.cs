@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace WcfService
@@ -8,7 +9,7 @@ namespace WcfService
     public interface ILogService
     {
         [OperationContract]
-        string Input(string s);
+        List<string> LogFil(string s);
 
         
     }
