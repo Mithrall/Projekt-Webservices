@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogReader", "LogReader\LogReader.csproj", "{F08116CD-D349-41B9-B9C6-A8F12D575379}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FE30F01-FEFA-4E9E-A92D-1E0BB3CD8457} = {2FE30F01-FEFA-4E9E-A92D-1E0BB3CD8457}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{2FE30F01-FEFA-4E9E-A92D-1E0BB3CD8457}"
 EndProject
@@ -30,5 +33,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3A1ECDE-D666-4742-824D-2CF93575656B}
 	EndGlobalSection
 EndGlobal
