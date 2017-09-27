@@ -15,11 +15,11 @@ namespace LogReader.LogServiceRef {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LogServiceRef.ILogService")]
     public interface ILogService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogService/Input", ReplyAction="http://tempuri.org/ILogService/InputResponse")]
-        string Input(string s);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogService/LogFil", ReplyAction="http://tempuri.org/ILogService/LogFilResponse")]
+        string[] LogFil(string s);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogService/Input", ReplyAction="http://tempuri.org/ILogService/InputResponse")]
-        System.Threading.Tasks.Task<string> InputAsync(string s);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogService/LogFil", ReplyAction="http://tempuri.org/ILogService/LogFilResponse")]
+        System.Threading.Tasks.Task<string[]> LogFilAsync(string s);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +49,12 @@ namespace LogReader.LogServiceRef {
                 base(binding, remoteAddress) {
         }
         
-        public string Input(string s) {
-            return base.Channel.Input(s);
+        public string[] LogFil(string s) {
+            return base.Channel.LogFil(s);
         }
         
-        public System.Threading.Tasks.Task<string> InputAsync(string s) {
-            return base.Channel.InputAsync(s);
+        public System.Threading.Tasks.Task<string[]> LogFilAsync(string s) {
+            return base.Channel.LogFilAsync(s);
         }
     }
 }
