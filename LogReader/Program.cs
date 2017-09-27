@@ -22,6 +22,7 @@ namespace LogReader
             string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\logfil.txt";
             var text = File.ReadAllLines(SavePath);
             client.LogFil("test");
+            
             foreach (var line in text)
             {
                 //Console.WriteLine(line);
