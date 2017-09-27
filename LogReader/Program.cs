@@ -8,19 +8,18 @@ namespace LogReader {
         LogServiceClient client = new LogServiceClient();
         static void Main() {
 
-            Program Run = new Program();
-            Run.Run();
+            Program run = new Program();
+            run.Run();
         }
 
         private void Run() {
-            string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\logfil.txt";
-            var text = File.ReadAllLines(SavePath);
-            client.Input("test");
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\logfil.txt";
+            var text = File.ReadAllLines(savePath);
 
             foreach (var line in text) {
                 Console.WriteLine(line);
+                client.LogFil(line);
                 Thread.Sleep(1000);
-                //client.Input(line);
             }
 
             Console.WriteLine("Press 'any' key to exit...");

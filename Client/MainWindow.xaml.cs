@@ -1,12 +1,18 @@
 ﻿using System.Windows;
 
 namespace Client {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow:Window {
+    public partial class MainWindow:Window
+    {
+        public Viewmodel viewmodel;
         public MainWindow() {
             InitializeComponent();
+            viewmodel = new Viewmodel();
+            DataContext = viewmodel;
+        }
+
+        private void getData_onclick(object sender, RoutedEventArgs e)
+        {
+            viewmodel.GetData();
         }
     }
 }

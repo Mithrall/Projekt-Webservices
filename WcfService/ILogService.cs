@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 
-namespace WcfService
-{
-    
+namespace WcfService {
+
     [ServiceContract]
-    public interface ILogService
-    {
+    public interface ILogService {
         [OperationContract]
-        List<string> LogFil(string s);
+        void LogFil(string s);
 
-        
+        [OperationContract]
+        string GetLast();
     }
-
-    
 }

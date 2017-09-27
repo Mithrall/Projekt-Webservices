@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 
-namespace WcfService
-{
-    public class LogService : ILogService
-    {
-        List<string> LogListe = new List<string>();
-        public List<string> LogFil(string s)
-        {
-            LogListe.Add(s);
-
-            return LogListe;
+namespace WcfService {
+    public class LogService:ILogService {
+        
+        public void LogFil(string s) {
+            Repo.logListe.Add(s);
         }
 
-
+        public string GetLast() {
+            return Repo.logListe.Last();
+        }
     }
 }

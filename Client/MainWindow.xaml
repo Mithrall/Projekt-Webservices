@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center">
+            <Label Content="{Binding Path=Test}"/>
+            <Button Width="120" Content="Test" Click="getData_onclick"/>
+        </StackPanel>
     </Grid>
 </Window>
