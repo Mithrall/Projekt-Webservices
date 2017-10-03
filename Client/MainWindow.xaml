@@ -3,13 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <StackPanel VerticalAlignment="Center">
-            <Label Content="{Binding Path=Test}"/>
-            <Button Width="120" Content="Test" Click="getData_onclick"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="Id: "/>
+            <Label Content="Alarm: "/>
+            <Label Content="Navn/afdeling: "/>
+            <Label Content="Bolig: "/>
+            <Label Content="Lokation: "/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <Label x:Name="DispatcherText" Content="{Binding Path=Id}"/>
+            <Label Content="{Binding Path=Alarm}"/>
+            <Label Content="{Binding Path=Name}"/>
+            <Label Content="{Binding Path=Department}"/>
+            <Label Content="{Binding Path=Residential}"/>
+        </StackPanel>
+        
+        <!--For testing purpose-->
+        <StackPanel Grid.Column="3">
+            <TextBlock Text="{Binding Path=Test}"/>
         </StackPanel>
     </Grid>
 </Window>

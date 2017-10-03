@@ -1,18 +1,25 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 
 namespace Client {
-    public partial class MainWindow:Window
-    {
-        public Viewmodel viewmodel;
+    public partial class MainWindow:Window {
+        public Viewmodel Viewmodel;
+        public bool Running = true;
+
         public MainWindow() {
             InitializeComponent();
-            viewmodel = new Viewmodel();
-            DataContext = viewmodel;
+            Viewmodel = new Viewmodel();
+            DataContext = Viewmodel;
+            
+            Thread thread = new Thread(Requester);
+            thread.Start();
         }
 
-        private void getData_onclick(object sender, RoutedEventArgs e)
-        {
-            viewmodel.GetData();
+        private void Requester() {
+            while (Running) {
+                DispatcherText.Dispatcher.Invoke(new Viewmodel.UpdateText(Viewmodel.UpdateText2), Viewmodel.GetData());
+                Thread.Sleep(5000);
+            }
         }
     }
 }
