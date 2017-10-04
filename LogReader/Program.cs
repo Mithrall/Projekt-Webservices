@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Threading;
 using LogReader.LogServiceRef;
 
@@ -7,16 +8,18 @@ namespace LogReader {
     class Program {
         LogServiceClient client = new LogServiceClient();
         static void Main() {
-
             Program run = new Program();
             run.Run();
         }
 
         private void Run() {
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\logfil.txt";
-            var text = File.ReadAllLines(savePath);
+            Console.OutputEncoding = Encoding.GetEncoding("Windows-1252");
 
-            foreach (var line in text) {
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\logfil.txt";
+            var text = File.ReadAllLines(savePath, Encoding.GetEncoding("Windows-1252"));
+
+            foreach (var l in text) {
+                var line = l.Replace('†', 'å').Replace('›', 'ø');
                 Console.WriteLine(line);
                 client.LogFil(line);
                 Thread.Sleep(1000);
@@ -25,6 +28,6 @@ namespace LogReader {
             Console.WriteLine("Press 'any' key to exit...");
             Console.ReadKey();
         }
-        
+
     }
 }
