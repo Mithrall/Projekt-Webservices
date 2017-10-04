@@ -88,11 +88,6 @@ namespace Client {
             Name = s[3];
             Department = s[4];
             Residential = s[5];
-
-            //Test = "";
-            //foreach (var ss in s) {
-            //    Test += ss + "\n";
-            //}
         }
     }
 }

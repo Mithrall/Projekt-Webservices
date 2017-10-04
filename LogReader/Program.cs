@@ -5,7 +5,7 @@ using System.Threading;
 using LogReader.LogServiceRef;
 
 namespace LogReader {
-    class Program {
+    internal class Program {
         LogServiceClient client = new LogServiceClient();
         static void Main() {
             Program run = new Program();

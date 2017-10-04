@@ -4,7 +4,6 @@ using System.Windows;
 namespace Client {
     public partial class MainWindow:Window {
         public Viewmodel Viewmodel;
-        public bool Running = true;
 
         public MainWindow() {
             InitializeComponent();
@@ -16,8 +15,8 @@ namespace Client {
         }
 
         private void Requester() {
-            while (Running) {
-                DispatcherText.Dispatcher.Invoke(new Viewmodel.UpdateText(Viewmodel.UpdateText2), Viewmodel.GetData());
+            while (true) {
+                Dispatcher.Invoke(new Viewmodel.UpdateText(Viewmodel.UpdateText2), Viewmodel.GetData());
                 Thread.Sleep(5000);
             }
         }
