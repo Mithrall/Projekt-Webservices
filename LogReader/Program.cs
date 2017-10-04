@@ -19,7 +19,7 @@ namespace LogReader {
             var text = File.ReadAllLines(savePath, Encoding.GetEncoding("Windows-1252"));
 
             foreach (var l in text) {
-                var line = l.Replace('†', 'å').Replace('›', 'ø');
+                var line = l.Replace('†', 'å').Replace('›', 'ø').Replace('‘', 'æ');
                 Console.WriteLine(line);
                 client.LogFil(line);
                 Thread.Sleep(1000);
