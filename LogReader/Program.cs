@@ -6,12 +6,13 @@ using LogReader.LogServiceRef;
 
 namespace LogReader {
     internal class Program {
-        LogServiceClient client = new LogServiceClient();
+        LogServiceClient server = new LogServiceClient();
         static void Main() {
             Program run = new Program();
             run.Run();
         }
 
+        //Reads a line from "logfil.txt" once every sec - replaces the wierd symbols when the propper danish letters - sends the line to the server.
         private void Run() {
             Console.OutputEncoding = Encoding.GetEncoding("Windows-1252");
 
@@ -21,13 +22,12 @@ namespace LogReader {
             foreach (var l in text) {
                 var line = l.Replace('†', 'å').Replace('›', 'ø').Replace('‘', 'æ');
                 Console.WriteLine(line);
-                client.LogFil(line);
+                server.LogFil(line);
                 Thread.Sleep(1000);
             }
 
             Console.WriteLine("Press 'any' key to exit...");
             Console.ReadKey();
         }
-
     }
 }
