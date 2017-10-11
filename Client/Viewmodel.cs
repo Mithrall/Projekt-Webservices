@@ -72,14 +72,18 @@ namespace Client {
             }
         }
 
+        //Updates the UI when "OnPropertyChanged()" is called from any of the setters above
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        //Requests the latest data (string) from the server
         public string GetData() {
             return Client.GetLast();
         }
 
+        //specifies where what part of the string is shown in the UI when the Invoke from MainWindow.xaml.cs is called
         public delegate void UpdateText(string s);
         public void UpdateText2(string message) {
             string[] s = message.Split('\t');

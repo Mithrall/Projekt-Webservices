@@ -20,18 +20,13 @@
             <Label Content="Bolig: "/>
             <Label Content="Lokation: "/>
         </StackPanel>
-        
+
         <StackPanel Grid.Column="2" VerticalAlignment="Center">
             <Label x:Name="DispatcherText" Content="{Binding Path=Id}"/>
             <Label Content="{Binding Path=Alarm}"/>
             <Label Content="{Binding Path=Name}"/>
             <Label Content="{Binding Path=Department}"/>
             <Label Content="{Binding Path=Residential}"/>
-        </StackPanel>
-        
-        <!--For testing purpose-->
-        <StackPanel Grid.Column="3">
-            <TextBlock Text="{Binding Path=Test}"/>
         </StackPanel>
     </Grid>
 </Window>
