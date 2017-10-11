@@ -54,6 +54,20 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj">
+      <Project>{700d3bcb-5355-4124-b59e-9b90df5547ce}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogReader\LogReader.csproj">
+      <Project>{f08116cd-d349-41b9-b9c6-a8f12d575379}</Project>
+      <Name>LogReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfService\WcfService.csproj">
+      <Project>{2fe30f01-fefa-4e9e-a92d-1e0bb3cd8457}</Project>
+      <Name>WcfService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
